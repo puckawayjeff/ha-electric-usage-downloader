@@ -5,7 +5,7 @@ import logging
 _LOGGER = logging.getLogger(__name__)
 
 class ElectricUsageAPI:
-    """Handles communication with the PEC SmartHub portal."""
+    """Handles communication with the ACEC SmartHub portal."""
 
     def __init__(self, session: aiohttp.ClientSession, username: str, password: str, login_url: str, usage_url: str):
         """Initialize the API client."""
@@ -17,7 +17,7 @@ class ElectricUsageAPI:
         self.cookies = None
 
     async def login(self):
-        """Log in to the PEC SmartHub and retrieve session cookies."""
+        """Log in to the ACEC SmartHub and retrieve session cookies."""
         payload = {
             "UserName": self.username,
             "Password": self.password
@@ -29,17 +29,17 @@ class ElectricUsageAPI:
         try:
             async with self.session.post(self.login_url, data=payload, headers=headers) as response:
                 if response.status == 200:
-                    _LOGGER.debug("Successfully logged in to PEC SmartHub")
+                    _LOGGER.debug("Successfully logged in to ACEC SmartHub")
                     self.cookies = response.cookies
                 else:
-                    _LOGGER.error(f"Failed to log in to PEC SmartHub: {response.status}")
+                    _LOGGER.error(f"Failed to log in to ACEC SmartHub: {response.status}")
                     raise Exception("Login failed")
         except Exception as e:
             _LOGGER.error(f"Error during login: {e}")
             raise
 
     async def get_usage_data(self):
-        """Fetch electric usage data by scraping the PEC SmartHub portal."""
+        """Fetch electric usage data by scraping the ACEC SmartHub portal."""
         if not self.cookies:
             await self.login()
 
