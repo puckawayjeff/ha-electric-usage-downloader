@@ -1,14 +1,14 @@
 # HA Electric Usage Downloader
 
-The **HA Electric Usage Downloader** integration allows you to download and display your electric usage data from the PEC SmartHub portal directly in Home Assistant. This integration polls the SmartHub API every 15 minutes to provide real-time data about your electricity consumption.
+The **HA Electric Usage Downloader** integration allows you to download and display your electric usage data from the ACEC SmartHub portal directly in Home Assistant. This integration polls the SmartHub API every 15 minutes to provide real-time data about your electricity consumption.
 
 ## Features
-- **Electric Usage Data**: Automatically fetches your electric usage from the PEC SmartHub portal every 15 minutes.
+- **Electric Usage Data**: Automatically fetches your electric usage from the ACEC SmartHub portal every 15 minutes.
 - **Configurable URLs**: Allows you to configure the login and usage URLs for flexibility with different SmartHub instances.
 - **Easy Integration**: Once set up, your electric usage data is displayed as a sensor in Home Assistant.
 
 ## Requirements
-- PEC SmartHub account credentials (username and password).
+- ACEC SmartHub account credentials (username and password).
 - Home Assistant (version 2023.1.0 or higher).
 
 ---
@@ -43,11 +43,11 @@ After installation, you can configure the integration through the Home Assistant
 
 1. Go to **Settings** > **Devices & Services** > **Add Integration**.
 2. Search for `HA Electric Usage Downloader` and select it.
-3. Enter your **username** and **password** for the PEC SmartHub portal.
+3. Enter your **username** and **password** for the ACEC SmartHub portal.
 4. Input the **login URL** and **usage URL** for your SmartHub provider.
-- Default PEC URLs:
-  - Login URL: `https://pec.smarthub.coop/Login.html`
-  - Usage URL: `https://pec.smarthub.coop/Usage/Usage.htm`
+- Default ACEC URLs:
+  - Login URL: `https://acecwi.smarthub.coop/Login.html`
+  - Usage URL: `https://acecwi.smarthub.coop/Usage/Usage.htm`
 5. Complete the configuration, and a new sensor entity will be created with your electric usage data.
 
 ---
@@ -65,7 +65,7 @@ You can view this sensor in your Home Assistant dashboard or use it in automatio
 If you encounter issues:
 - **Verify URLs**: Ensure that you have entered the correct login and usage URLs for your provider.
 - **Check Logs**: Look at the Home Assistant logs (under **Settings** > **System** > **Logs**) for any error messages related to the integration.
-- **Authentication Errors**: If login fails, ensure your credentials are correct for the PEC SmartHub portal.
+- **Authentication Errors**: If login fails, ensure your credentials are correct for the ACEC SmartHub portal.
 
 ---
 
